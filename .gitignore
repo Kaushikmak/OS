@@ -1,0 +1,46 @@
+# Compiled binaries
+*.out
+*.exe
+*.o
+*.obj
+*.a
+*.so
+*.dll
+*.dylib
+
+# Debug files
+*.dSYM/
+*.gdb_history
+core
+core.*
+
+# Build directories
+build/
+bin/
+dist/
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+
+# VS Code
+.vscode/
+
+# CLion / IntelliJ
+.idea/
+cmake-build-*/
+
+# Vim session files
+Session.vim
+
+# macOS
+.DS_Store
+
+# Linux thumbnails
+.directory
