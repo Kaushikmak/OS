@@ -3,15 +3,16 @@
 #include <unistd.h>
 
 int main(){
-    printf("hello world (pid:%d)\n",(int)getpid());
+    printf("pid of this process is %d\n",(int)getpid());
     int pid = fork();
     if(pid < 0){
         fprintf(stderr, "fork failed\n");
         exit(1);
     }else if(pid == 0){
-        printf("hello, this is child process (pid:%d)\n",(int)getpid());
+        printf("pid of child is %d\n",(int)getpid()); 
     }else{
-        printf("hello this is parent of %d (pid:%d)\n",pid,(int)getpid());
+        int wc = wait(NULL);
+        printf("pid of child is %d whose parent is %d\n",pid,(int)getpid());
     }
     return 0;
 }
