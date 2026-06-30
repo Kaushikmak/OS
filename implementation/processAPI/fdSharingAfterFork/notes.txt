@@ -1,0 +1,7 @@
+Notes on File Descriptor Sharing After Fork
+
+When a process calls fork(), the child process inherits a copy of the parent's file descriptor table.
+Because the descriptors point to the same underlying open file description in the kernel, they share the same file offset.
+This means if both parent and child write to the file, they will not overwrite each other's data (assuming proper synchronization or sequential execution, e.g. parent waiting for child).
+
+In this example, the parent waits for the child to finish writing before it writes, so the child's message appears first, followed by the parent's message, appended naturally due to the shared offset.

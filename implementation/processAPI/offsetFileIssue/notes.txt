@@ -1,0 +1,7 @@
+Notes on File Offset Issues
+
+When a file is opened multiple times independently (using open() twice), each file descriptor points to a different open file description in the kernel.
+Each description maintains its own file offset independently.
+If two processes (or the same process with two descriptors) write to the file concurrently or sequentially without synchronization, they may overwrite each other's data because both offsets start at 0.
+
+This is different from file descriptors duplicated via dup() or shared via fork(), which point to the SAME open file description and thus share the same offset, appending data naturally.

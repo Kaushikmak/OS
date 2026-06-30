@@ -1,0 +1,9 @@
+Notes on Exit Codes and IPC
+
+When a child process calls exit(status) or returns from main, the operating system saves this exit status.
+The parent process can retrieve this status using wait() or waitpid().
+This is one of the simplest forms of Inter-Process Communication (IPC), allowing the child to communicate success (usually 0) or specific error codes to the parent.
+
+The status returned by waitpid() is an integer that encodes multiple pieces of information (like whether it exited normally, was killed by a signal, etc.).
+Normally, C macros like WIFEXITED and WEXITSTATUS are used to extract this information.
+In this implementation, we manually performed the bitwise operations to extract the exit code (shifting right by 8 bits) to demonstrate what the macros do internally.

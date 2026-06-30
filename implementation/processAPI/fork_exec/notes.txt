@@ -1,0 +1,9 @@
+Notes on fork and exec
+
+The fork() system call creates a new process by duplicating the calling process.
+The exec family of functions replaces the current process image with a new process image.
+
+Together, fork and exec are used to run a new program in a separate process:
+1. The parent calls fork(), creating a child process.
+2. The child process calls exec() to run the new program.
+3. The parent typically calls wait() to wait for the child to finish executing.

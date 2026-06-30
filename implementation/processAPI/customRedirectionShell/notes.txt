@@ -1,0 +1,12 @@
+Notes on Custom Redirection Shell
+
+This program implements a basic interactive shell that can handle standard shell redirections using the `<` and `>` characters.
+It continuously loops, prompting the user for input.
+When a command is entered, it tokenizes the string. 
+If it encounters a `>`, it records the next token as the output file.
+If it encounters a `<`, it records the next token as the input file.
+
+Once parsed, it forks a child process.
+In the child, if an output file was specified, it closes file descriptor 1 (stdout) and opens the file, redirecting output.
+If an input file was specified, it closes file descriptor 0 (stdin) and opens the file, redirecting input.
+Finally, it uses execvp to run the command with its arguments.

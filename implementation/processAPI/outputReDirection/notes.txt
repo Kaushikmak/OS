@@ -1,0 +1,9 @@
+Notes on Output Redirection
+
+Output redirection means changing the standard output (fd 1) so that a program writes to a file instead of the terminal.
+This is accomplished by:
+1. Closing standard output: close(1)
+2. Opening a file for writing: open(filename, O_CREAT | O_WRONLY | O_TRUNC, permissions)
+
+Because the lowest-numbered file descriptor is always assigned, the newly opened file will get descriptor 1.
+When the subsequent exec() call runs a new program (like `echo`), that program will transparently write to the file instead of the terminal when it sends output to standard output.

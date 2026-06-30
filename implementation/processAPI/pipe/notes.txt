@@ -1,0 +1,10 @@
+Notes on Pipes
+
+A pipe is a unidirectional communication channel between processes.
+pipe() system call takes an array of two integers. It populates them with two file descriptors:
+- fd[0] is for reading
+- fd[1] is for writing
+
+Typically, a process creates a pipe and then calls fork().
+To establish a one-way channel, one process closes the read end and writes to the write end, while the other closes the write end and reads from the read end.
+It's important to close unused ends of the pipe, especially the write end, so that the reader eventually receives an EOF when all writers are done.

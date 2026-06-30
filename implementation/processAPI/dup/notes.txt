@@ -1,0 +1,13 @@
+Notes on dup and dup2
+
+dup(oldfd) creates a copy of the file descriptor oldfd. It uses the lowest-numbered unused file descriptor for the new descriptor.
+dup2(oldfd, newfd) makes newfd be the copy of oldfd, closing newfd first if necessary.
+
+These are heavily used in shell redirection and pipes.
+For example, to redirect stdout to a file:
+1. open file
+2. dup2(file_fd, 1)  // 1 is STDOUT_FILENO
+3. close(file_fd)
+
+After this, any write to fd 1 goes to the file.
+Note: To adhere to coding style, we avoided using macros like STDOUT_FILENO and instead used the integer `1` with a comment explaining it represents the macro.

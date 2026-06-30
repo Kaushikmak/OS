@@ -1,0 +1,8 @@
+Notes on Signal Termination
+
+When a process performs an illegal operation (like dividing by zero, accessing invalid memory, or executing an illegal instruction), the operating system sends it a signal (like SIGFPE or SIGSEGV) which typically terminates it.
+
+When the parent process calls wait() or waitpid(), it can examine the status integer to find out exactly why the child died.
+Instead of an exit code, the status encodes the signal number that killed the child.
+Normally, C macros like WIFSIGNALED(status) and WTERMSIG(status) are used to extract this information.
+In this implementation, we emulate that by inspecting the lowest 7 bits of the status integer manually.

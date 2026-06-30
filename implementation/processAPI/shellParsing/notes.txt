@@ -1,0 +1,8 @@
+Notes on Shell Parsing
+
+A critical part of implementing a shell is parsing user input.
+The exec() family of functions (like execvp) requires an array of strings (char pointers).
+The first element (args[0]) is the command name, and the subsequent elements are the arguments.
+The array must be terminated by a NULL pointer.
+
+Standard C library functions like strtok() are often used to split a command string by whitespace (spaces, tabs, newlines) into individual tokens to build this arguments array.

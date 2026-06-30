@@ -1,0 +1,13 @@
+Notes on File Descriptor Table
+
+Every process has its own file descriptor table.
+By convention, the first three file descriptors are:
+0 - Standard Input
+1 - Standard Output
+2 - Standard Error
+
+When a new file is opened, the operating system assigns the lowest available file descriptor number.
+Thus, opening a new file in a standard program usually returns 3.
+If we close a standard file descriptor (like 1 for stdout) and open a new file, that new file will be assigned descriptor 1.
+
+This is the underlying mechanism for I/O redirection in shells.

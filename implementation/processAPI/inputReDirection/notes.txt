@@ -1,0 +1,9 @@
+Notes on Input Redirection
+
+Input redirection means changing the standard input (fd 0) so that a program reads from a file instead of the terminal.
+This is accomplished by:
+1. Closing standard input: close(0)
+2. Opening a file for reading: open(filename, O_RDONLY)
+
+Because the lowest-numbered file descriptor is always assigned, the newly opened file will get descriptor 0.
+When the subsequent exec() call runs a new program (like `wc`), that program will transparently read from the file instead of the terminal when it asks for standard input.

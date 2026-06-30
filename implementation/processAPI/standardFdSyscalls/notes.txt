@@ -1,0 +1,9 @@
+Notes on Standard File Descriptor System Calls
+
+In UNIX and Linux, "everything is a file". This includes the keyboard and the screen.
+When a program starts, it automatically has three open file descriptors:
+0: Standard Input (keyboard)
+1: Standard Output (screen)
+2: Standard Error (screen)
+
+While standard C library functions like printf() and scanf() wrap these concepts in buffered streams, we can interact with them directly using the low-level read() and write() system calls by passing 0, 1, or 2 as the file descriptor arguments.
