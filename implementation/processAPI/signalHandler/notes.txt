@@ -1,0 +1,4 @@
+signal( SIGNALNUMBER , POINTER TO HANDLER )
+
+
+signal(int signum, void (*handler)(int));

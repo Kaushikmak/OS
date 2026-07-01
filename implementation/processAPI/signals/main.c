@@ -31,7 +31,7 @@ int main(){
     }else if(pid == 0){
         printf("Child process running\n");
         int x = 5;
-        int y = 0;
+        int y = 2;
         int z = x/y;
         printf("result of division of x/y: %d\n",z);
         exit(EVERYTHING_OKAY);
