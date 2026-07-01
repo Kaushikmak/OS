@@ -3,6 +3,7 @@
 
 int main() {
     char buf[100];
+    // to see fd go to /proc/PID_VALUE/fd/ or fdinfo
     
     // Instead of using printf, we use the write() system call directly
     // 1 is the file descriptor for standard output (STDOUT_FILENO)
