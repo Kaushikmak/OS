@@ -4,6 +4,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+// a signal handler cannot, in general, call standard library functions.
+
 void customSignalhandler(int signalNumber){
     printf("\nTHIS IS SIGNAL HANDLER\n");
     printf("User pressed CONTROL + C\n");
