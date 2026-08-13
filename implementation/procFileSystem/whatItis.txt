@@ -1,0 +1,14 @@
+read: https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/4/html/reference_guide/ch-proc
+
+The Linux kernel has two primary functions: to control access to physical devices on the computer and to schedule when and how processes interact with these devices
+
+this is /proc i.e pseudo filesystem
+
+Within the /proc/ directory, we can find the system hardware and any processes currently running
+
+Under Linux, all data are stored as files. Most users are familiar with the two primary types of files: text and binary. But the /proc/ directory contains another type of file called a virtual file. It is for this reason that /proc/ is often referred to as a virtual file system.
+
+These virtual files have unique qualities. Most of them are listed as zero bytes in size and yet when one is viewed, it can contain a large amount of information. In addition, most of the time and date settings on virtual files reflect the current time and date, indicative of the fact they are constantly updated.
+
+Virtual files such as /proc/interrupts, /proc/meminfo, /proc/mounts, and /proc/partitions provide an up-to-the-moment glimpse of the system's hardware. Others, like the /proc/filesystems file and the /proc/sys/ directory provide system configuration information and interfaces.
+
